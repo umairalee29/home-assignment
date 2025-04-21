@@ -31,8 +31,7 @@ export class MainContentComponent implements OnInit {
     if(this.employee != null) {
 
       // If flagging (flag = true) and email is a valid string, send an email
-      if(flag === true && typeof this.employee?.email === 'string'){
-
+      if(flag === true){
         // Call EmailService to send an email notification
         this.emailService.sendEmail(
           this.employee?.email,
