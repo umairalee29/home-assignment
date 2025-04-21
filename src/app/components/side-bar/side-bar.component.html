@@ -1,0 +1,28 @@
+<div class="side-bar">
+  <h2>Employees</h2>
+  @if(error){
+    <div class="error" role="alert">{{ error }}</div>
+  }
+  @else {
+    <div class="side-bar-container" role="main" aria-label="Employee List">
+      <!-- Show loading spinner while fetching data -->
+      <mat-progress-spinner *ngIf="loading" mode="indeterminate" diameter="40" aria-label="Loading employees"></mat-progress-spinner>
+    
+      <!-- Display employee list once data is loaded -->
+      <mat-list *ngIf="!loading" role="list" class="employee-list">
+        <mat-list-item *ngFor="let employee of employees$ | async" role="listitem" class="employee-item" [class.active]="selectedEmployee?.id === employee.id" (click)="onSelectEmployee(employee)">
+          <img matListItemAvatar [src]="employee.avatar" [alt]="'Avatar of ' + employee.name" class="avatar">
+          <div matListItemTitle class="employee-details">
+            @if(employee.isFlag) {
+              <h5>{{ employee.name }}</h5>
+              <i class="bi bi-flag-fill flag-status"></i>
+            }
+            @else {
+              <h5>{{ employee.name }}</h5> 
+            }
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  }
+</div>

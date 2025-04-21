@@ -1,0 +1,66 @@
+.side-bar {
+  width: 300px;
+  background-color: #2c3e50;
+  color: white;
+  height: 100vh;
+  position: fixed;
+}
+
+.side-bar .employee-details {
+  margin-left: 16px;
+  display: flex;
+}
+
+.side-bar h5 {
+  white-space: nowrap; 
+  width: 80%; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+.side-bar h2 {
+  font-size: 24px;
+  padding: 20px;
+}
+
+.side-bar .employee-list {
+  height: calc(100vh - 75px);
+  overflow-y: scroll;
+}
+
+.side-bar .employee-list::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar */
+}
+
+.side-bar .employee-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.side-bar .employee-item:hover {
+  color: #3498db;
+  background-color: white;
+  cursor: pointer;
+}
+
+.side-bar .employee-item.active {
+  color: #3498db;
+  background-color: white;
+  cursor: pointer;
+}
+
+.side-bar .avatar {
+  vertical-align: middle;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+mat-progress-spinner {
+  margin: 16px auto;
+}
+
+.error {
+  background-color: #dc3545;
+}

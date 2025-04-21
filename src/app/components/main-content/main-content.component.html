@@ -1,0 +1,58 @@
+<div class="main-content">
+  @if(employee) {
+    <div>
+      <h1>{{ employee.name }} Details</h1>
+      <div class="detail-container">
+        <!-- Example with user data -->
+        <div class="detail-card">
+          <div class="detail-header">
+            <div class="user-avatar">
+              <img src="{{ employee.avatar }}" alt="Avatar" class="user-avatar">
+            </div>
+            <h2>
+              {{ employee.name }}
+              @if (employee.isFlag) {
+                <i class="bi bi-flag-fill"></i>
+              }
+            </h2>
+          </div>
+          <div class="detail-body">
+            <p><strong>ID:</strong> {{ employee.id }}</p>
+            <p><strong>Email:</strong> {{ employee.email }}</p>
+            <p><strong>Gender:</strong> 
+              @if(employee.gender === 'male') {
+                <i class="bi bi-gender-male"></i>
+              }
+              @else {
+                <i class="bi bi-gender-female"></i>
+              }
+            </p>
+            <p><strong>Phone:</strong> {{ employee.phone }}</p>
+            <p><strong>Address:</strong> {{ employee.address }}</p>
+            <p><strong>Flag Status:</strong> 
+              @if(employee.isFlag) {
+                Flagged <i class="bi bi-flag-fill flag-status" title="Click to change the status" (click)="flagEmployee(false)"></i>
+              }
+              @else {
+                Unflagged <i class="bi bi-flag flag-status" title="Click to change the status" (click)="flagEmployee(true)"></i>
+              }
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Alert -->
+       @if(showAlert) {
+        <div class="alert" [ngClass]="alertType === 'success' ? 'alert-success' : 'alert-error'">
+        {{ alertMessage }}
+        <span class="close-btn" (click)="showAlert = false">&times;</span>
+      </div>
+       }
+    </div>
+  } @else {
+    <div>
+      <h1>No Employee <i class="bi bi-emoji-frown"></i></h1>
+      <p>Ooppsss...!!!</p>
+      <p>No employee selected. Please select an employee from the sidebar, thanks :)</p>
+    </div>
+  }
+</div>
