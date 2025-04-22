@@ -52,7 +52,7 @@ export class MainContentComponent implements OnInit {
             this.showAlert = true;
             this.alertMessage = 'Failed to send email to: ' + this.employee?.email;
             this.alertType = 'error';
-            this.setEmployeeFlag(true)
+            this.setEmployeeFlag(true) // Made it true so I can update the flag status of employee
             setTimeout(() => {
               this.showAlert = false;
             }, 3000);
